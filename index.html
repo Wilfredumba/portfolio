@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Wilfred Umba · Data Analyst | Economics & Statistics</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafc;
+            color: #0f172a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: #0f172a;
+            position: relative;
+            display: inline-block;
+        }
+        h2 i {
+            color: #2563eb;
+            margin-right: 0.8rem;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+        
+        /* HEADER & NAVIGATION */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        }
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            transition: all 0.2s;
+            font-size: 1rem;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+        
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #1e293b;
+            transition: all 0.25s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+        .btn-primary {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+            box-shadow: 0 8px 20px -8px #2563eb;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -8px #1d4ed8;
+        }
+        .btn-outline:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            transform: translateY(-2px);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: 4rem 0 5rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f9fafc 100%);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-badge {
+            background: #dbeafe;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+        .hero-highlight {
+            color: #2563eb;
+            position: relative;
+            display: inline-block;
+        }
+        .hero-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(37, 99, 235, 0.2);
+            z-index: -1;
+        }
+        .hero-sub {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 1.5rem 0 2rem;
+        }
+        .profile-visual {
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #2563eb10, #7c3aed10);
+            border-radius: 40% 60% 60% 40% / 40% 50% 50% 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            font-weight: 700;
+            color: #2563eb;
+            border: 4px solid white;
+            box-shadow: 0 30px 40px -20px #1e293b;
+            margin-left: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* SKILLS */
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2.5rem 0 1rem;
+        }
+        .skill-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 500;
+            color: #1e293b;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .skill-item:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px -8px #2563eb;
+        }
+        
+        /* EXPERIENCE CARDS */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        .exp-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px -15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f2f5;
+            transition: all 0.3s;
+        }
+        .exp-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -15px #2563eb30;
+            border-color: #2563eb20;
+        }
+        .exp-icon {
+            font-size: 2.2rem;
+            color: #2563eb;
+            margin-bottom: 1.2rem;
+        }
+        .exp-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.4rem;
+        }
+        .exp-meta {
+            color: #64748b;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .exp-meta i {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+        
+        /* PROJECT CARDS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        .project-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s;
+        }
+        .project-card:hover {
+            border-color: #2563eb40;
+            box-shadow: 0 25px 40px -18px #2563eb;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        .project-header h3 {
+            font-size: 1.5rem;
+        }
+        .project-folder {
+            font-size: 2.5rem;
+            color: #2563eb;
+            opacity: 0.9;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 1.5rem 0;
+        }
+        .tech-tag {
+            background: #eef2ff;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            letter-spacing: 0.02em;
+        }
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #eef2f6;
+        }
+        .project-link {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .project-link:hover {
+            gap: 0.7rem;
+        }
+        
+        /* RECOMMENDATION HIGHLIGHT */
+        .testimonial-block {
+            background: #f0f7ff;
+            border-radius: 40px;
+            padding: 2.8rem;
+            border: 1px solid #dbeafe;
+            margin: 3rem 0 1rem;
+            position: relative;
+        }
+        .testimonial-block i.fa-quote-left {
+            font-size: 3rem;
+            color: #2563eb;
+            opacity: 0.2;
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+        }
+        .testimonial-block p {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #1e293b;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: #0f172a;
+            padding-left: 3rem;
+        }
+        .testimonial-author span {
+            font-weight: 400;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        
+        /* CONTACT SECTION */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2.5rem 0;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            border: 1px solid #e2e8f0;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .contact-item:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px -12px #2563eb;
+        }
+        .contact-item i {
+            font-size: 1.3rem;
+            color: #2563eb;
+        }
+        
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            color: #64748b;
+            border-top: 1px solid #e6edf5;
+            margin-top: 2rem;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .profile-visual {
+                margin: 0 auto;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none; /* Would add mobile menu if needed */
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .profile-visual {
+                width: 250px;
+                height: 250px;
+                font-size: 4.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Wilfred Umba</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#" class="btn btn-outline" style="padding: 0.5rem 1.5rem;"><i class="fas fa-download"></i> CV</a>
+        </div>
+    </header>
+
+    <!-- HERO / ABOUT SECTION -->
+    <section class="hero" id="about">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-chart-line"></i> Data Analyst · Economist</span>
+                <h1>Turning complex<br>data into <span class="hero-highlight">clear impact</span></h1>
+                <p class="hero-sub">Economics & Statistics graduate with KIPPRA experience. I build insights, dashboards, and data tools for policy, business, and fintech.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-right"></i> View projects</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-comment"></i> Contact me</a>
+                </div>
+                <div class="skills-cloud">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">Power BI</span>
+                    <span class="skill-item">Stata</span>
+                    <span class="skill-item">SPSS</span>
+                    <span class="skill-item">Excel</span>
+                    <span class="skill-item">Econometrics</span>
+                    <span class="skill-item">PHP</span>
+                    <span class="skill-item">JavaScript</span>
+                </div>
+            </div>
+            <div class="profile-visual">
+                WU
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION (from CV) -->
+    <section id="experience">
+        <div class="container">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="exp-grid">
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-university"></i></div>
+                    <h3>KIPPRA · Intern</h3>
+                    <div class="exp-meta"><i class="fas fa-calendar"></i> Jun 2024 - Aug 2024 · Nairobi</div>
+                    <p>Collected and validated large datasets for economic policy research. Drafted policy briefs, maintained knowledge repositories, and created statistical reports and visualizations for internal presentations.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Freelance Data Analyst & Tutor</h3>
+                    <div class="exp-meta"><i class="fas fa-calendar"></i> 2023 - Present · Remote</div>
+                    <p>Statistical consulting for university projects. Built econometric models (Stata, SPSS, Excel), performed regression/forecasting, and designed Power BI dashboards. Guided students in methodology.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Volunteer Academic Mentor</h3>
+                    <div class="exp-meta"><i class="fas fa-calendar"></i> May 2023 - Apr 2025 · Maasai Mara University</div>
+                    <p>Mentored students in statistics, Excel, and SPSS. Assisted with final-year project proposals and data collection strategies. Conducted group sessions on data tools.</p>
+                </div>
+            </div>
+            
+            <!-- Recommendation letter highlight -->
+            <div class="testimonial-block">
+                <i class="fas fa-quote-left"></i>
+                <p>Mr. Wilfred Umba proved to be very reliable, professional, all-rounded, and had good interpersonal skills. He related well with both peers and supervisors and had good planning and organizational skills.</p>
+                <div class="testimonial-author">— Sir Samuel Kaunde, Senior Statistician, KIPPRA <span>(Recommendation letter, Aug 2024)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION (following requested structure) -->
+    <section id="projects">
+        <div class="container">
+            <h2><i class="fas fa-code-branch"></i> Featured projects</h2>
+            <div class="projects-grid">
+                <!-- Policy analysis project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Policy Impact Analysis</h3>
+                        <div class="project-folder"><i class="fas fa-folder-open"></i></div>
+                    </div>
+                    <p>Econometric evaluation of a policy using difference-in-differences. Inspired by KIPPRA work.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Stata</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Econometrics</span>
+                    </div>
+                    <div class="project-footer">
+                        <span><i class="far fa-file-alt"></i> Jupyter Notebook</span>
+                        <a href="projects/policy-analysis-kippra/" class="project-link">Explore <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- SQL Retail analysis -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>SQL + Power BI Dashboard</h3>
+                        <div class="project-folder"><i class="fas fa-database"></i></div>
+                    </div>
+                    <p>Complex SQL queries for retail data, visualized in an interactive Power BI dashboard.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">DAX</span>
+                    </div>
+                    <div class="project-footer">
+                        <span><i class="far fa-chart-bar"></i> Interactive</span>
+                        <a href="projects/sql-retail-analysis/" class="project-link">View <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Fintech app -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Fintech Data App</h3>
+                        <div class="project-folder"><i class="fas fa-credit-card"></i></div>
+                    </div>
+                    <p>Full-stack dashboard (Streamlit) for transaction insights and risk indicators. Scalable tool.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Plotly</span>
+                    </div>
+                    <div class="project-footer">
+                        <span><i class="fas fa-rocket"></i> Live demo</span>
+                        <a href="projects/fintech-dashboard-app/" class="project-link">Launch <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/Wilfredumba/portfolio" class="btn btn-outline"><i class="fab fa-github"></i> See all on GitHub</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- EDUCATION & CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2><i class="fas fa-graduation-cap"></i> Education & credentials</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div><strong><i class="fas fa-university"></i> BSc Economics & Statistics</strong><br>Maasai Mara University · EQF level 6</div>
+                <div><strong><i class="fas fa-certificate"></i> Data Analysis with Python</strong><br>Certificate · Mar 2024</div>
+                <div><strong><i class="fas fa-certificate"></i> Policy Research & Data Viz</strong><br>Professional Certificate · Jul 2024</div>
+            </div>
+            
+            <h2 style="margin-top: 3rem;"><i class="fas fa-paper-plane"></i> Let's connect</h2>
+            <div class="contact-links">
+                <a href="mailto:info.wilfredumba@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> info.wilfredumba@gmail.com</a>
+                <a href="#" class="contact-item"><i class="fas fa-phone-alt"></i> +254 742 908745</a>
+                <a href="https://github.com/Wilfredumba" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="contact-item"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+            <p style="text-align: center; color: #475569;">References: Sir Samuel Kaunde (KIPPRA) · +254 728 002045 | Job Oganda (MMU) · +254 721 101472</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Wilfred Umba · Built for https://wilfredumba.github.io/portfolio</p>
+        </div>
+    </footer>
+</body>
+  </html>
