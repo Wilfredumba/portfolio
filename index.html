@@ -3,1566 +3,717 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Wilfred Umba — Data Analyst specializing in Economics, Statistics, and Full-Stack Analytics. Translating complex data into strategic business and policy insights." />
-  <meta name="keywords" content="Data Analyst, Economics, Statistics, Python, SQL, Power BI, Tableau, Kenya, KIPPRA, Business Intelligence" />
-  <meta name="author" content="Wilfred Umba" />
-  <title>Wilfred Umba — Data Analyst & Economist</title>
+  <meta name="description" content="Wilfred Juma Umba — Data Analyst | Economics & Statistics Professional. Python, SQL, Power BI, Tableau, Econometric Modeling. Based in Nairobi, Kenya." />
+  <meta name="keywords" content="Wilfred Umba, Data Analyst, Nairobi, Kenya, Economics, Statistics, Python, SQL, Power BI, Tableau, KIPPRA, Maasai Mara University, Econometrics, Business Intelligence" />
+  <meta name="author" content="Wilfred Juma Umba" />
+  <meta property="og:title" content="Wilfred Umba — Data Analyst & Economist" />
+  <meta property="og:description" content="Translating complex data into strategic stories that drive policy and business growth." />
+  <meta property="og:type" content="website" />
+  <title>Wilfred Umba — Data Analyst & Economics Professional</title>
 
-  <!-- Google Fonts: Bebas Neue (display) + DM Serif Display (accent) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Manrope:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* ============================================================
-       DESIGN TOKENS
-    ============================================================ */
+    /* ── TOKENS ── */
     :root {
-      --bg:         #080c14;
-      --bg2:        #0d1220;
-      --bg3:        #111827;
-      --surface:    rgba(255,255,255,0.04);
-      --border:     rgba(255,255,255,0.08);
-      --cyan:       #00d4ff;
-      --cyan-dim:   rgba(0,212,255,0.12);
-      --cyan-glow:  rgba(0,212,255,0.35);
-      --gold:       #f5c842;
-      --text:       #e8edf5;
-      --muted:      #7a8599;
-      --white:      #ffffff;
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-serif:   'DM Serif Display', serif;
-      --font-body:    'DM Sans', sans-serif;
-      --nav-h:      72px;
-      --ease:       cubic-bezier(.16,1,.3,1);
+      --ink:   #04080f; --ink2:#0a0f1e; --ink3:#0f1628;
+      --sur:   rgba(255,255,255,.035); --sur2:rgba(255,255,255,.06);
+      --bd:    rgba(255,255,255,.07);  --bd2: rgba(255,255,255,.12);
+      --teal:  #00c9b1; --tg:rgba(0,201,177,.18); --ts:rgba(0,201,177,.08);
+      --amb:   #f5a623; --as:rgba(245,166,35,.1);
+      --tx:    #d8e0ef; --mu:#667088; --mu2:#8a96ae; --wh:#ffffff;
+      --fh:'Syne',sans-serif; --fs:'Lora',serif; --fb:'Manrope',sans-serif;
+      --nh:68px; --ez:cubic-bezier(.16,1,.3,1);
     }
 
-    /* ============================================================
-       RESET & BASE
-    ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
+    /* ── RESET ── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--ink);color:var(--tx);font-family:var(--fb);font-weight:400;line-height:1.75;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;} ul{list-style:none;} img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:3px;}
+    ::-webkit-scrollbar-track{background:var(--ink);}
+    ::-webkit-scrollbar-thumb{background:var(--teal);border-radius:3px;}
 
-    /* ============================================================
-       SCROLLBAR
-    ============================================================ */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
+    /* ── LAYOUT ── */
+    .wrap{width:min(1160px,91vw);margin-inline:auto;}
+    .sec{padding-block:120px 110px;position:relative;}
+    .sec-alt{background:var(--ink2);}
 
-    /* ============================================================
-       UTILITY
-    ============================================================ */
-    .container {
-      width: min(1180px, 92vw);
-      margin-inline: auto;
-    }
-    .section-wrap {
-      padding-block: 110px 100px;
-      position: relative;
-    }
-    .eyebrow {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: .72rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      margin-bottom: 1.1rem;
-    }
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 28px; height: 1.5px;
-      background: var(--cyan);
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.6rem, 5vw, 4rem);
-      letter-spacing: .04em;
-      line-height: 1;
-      color: var(--white);
-      margin-bottom: .5rem;
-    }
-    .section-title span { color: var(--cyan); }
-    .section-sub {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 52ch;
-      margin-top: .75rem;
-    }
-    .big-num {
-      font-family: var(--font-display);
-      font-size: clamp(7rem, 14vw, 11rem);
-      color: rgba(255,255,255,0.03);
-      line-height: 1;
-      position: absolute;
-      right: 0; top: 60px;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: .05em;
+    .lbl{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;}
+    .lbl::before{content:'';display:inline-block;width:22px;height:1.5px;background:var(--teal);}
+
+    .h2{font-family:var(--fh);font-weight:800;font-size:clamp(2.3rem,4.5vw,3.5rem);letter-spacing:-.01em;line-height:1.05;color:var(--wh);}
+    .h2 em{font-style:italic;color:var(--teal);font-family:var(--fs);font-weight:600;}
+    .sdesc{font-size:.97rem;color:var(--mu2);max-width:50ch;margin-top:.85rem;line-height:1.8;}
+
+    .deco{font-family:var(--fh);font-weight:800;font-size:clamp(8rem,16vw,14rem);color:rgba(255,255,255,.025);line-height:1;position:absolute;right:-1rem;top:40px;pointer-events:none;user-select:none;letter-spacing:-.03em;}
+
+    /* ── REVEAL ── */
+    .r{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ez),transform .8s var(--ez);}
+    .r.on{opacity:1;transform:none;}
+    .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+    .d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+
+    /* ── PROGRESS BAR ── */
+    #prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--teal),var(--amb));z-index:9999;transition:width .1s linear;}
+
+    /* ── NAV ── */
+    #nav{position:fixed;top:0;left:0;right:0;height:var(--nh);z-index:990;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+    #nav.on{background:rgba(4,8,15,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-color:var(--bd);}
+    .ni{height:100%;display:flex;align-items:center;justify-content:space-between;}
+    .logo{font-family:var(--fh);font-weight:800;font-size:1.28rem;letter-spacing:.05em;color:var(--wh);display:flex;align-items:center;gap:.3rem;}
+    .logo span{width:7px;height:7px;background:var(--teal);border-radius:50%;display:inline-block;box-shadow:0 0 10px var(--teal);}
+    .nlinks{display:flex;gap:2.2rem;align-items:center;}
+    .nlinks a{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--mu);transition:color .25s;position:relative;}
+    .nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--teal);transition:width .3s var(--ez);}
+    .nlinks a:hover{color:var(--wh);} .nlinks a:hover::after{width:100%;}
+    .nhire{padding:.42rem 1.15rem;background:var(--teal);color:var(--ink)!important;font-size:.73rem!important;font-weight:700!important;border-radius:4px;letter-spacing:.12em;transition:transform .2s,box-shadow .25s!important;}
+    .nhire:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,201,177,.35)!important;}
+    .nhire::after{display:none!important;}
+    .burg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+    .burg span{display:block;width:22px;height:1.5px;background:var(--tx);transition:transform .3s,opacity .3s;}
+    .burg.x span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+    .burg.x span:nth-child(2){opacity:0;}
+    .burg.x span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+    @media(max-width:780px){
+      .burg{display:flex;}
+      .nlinks{position:fixed;top:var(--nh);left:0;right:0;background:rgba(4,8,15,.97);flex-direction:column;gap:0;padding:1.2rem 0 2rem;transform:translateY(-110%);transition:transform .4s var(--ez);backdrop-filter:blur(20px);}
+      .nlinks.open{transform:none;}
+      .nlinks a{padding:.85rem 2.2rem;font-size:.85rem;color:var(--tx);}
+      .nhire{margin:.5rem 2.2rem 0;text-align:center;padding:.7rem 1.5rem;display:block;}
     }
 
-    /* ============================================================
-       REVEAL ANIMATIONS
-    ============================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(34px);
-      transition: opacity .75s var(--ease), transform .75s var(--ease);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-    .reveal-delay-1 { transition-delay: .1s; }
-    .reveal-delay-2 { transition-delay: .2s; }
-    .reveal-delay-3 { transition-delay: .3s; }
-    .reveal-delay-4 { transition-delay: .4s; }
-    .reveal-delay-5 { transition-delay: .5s; }
+    /* ── HERO ── */
+    #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:var(--nh);}
+    #cnv{position:absolute;inset:0;width:100%;height:100%;}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
+    .b1{width:600px;height:600px;background:rgba(0,201,177,.07);top:-150px;left:-100px;}
+    .b2{width:500px;height:500px;background:rgba(245,166,35,.05);bottom:-100px;right:-80px;}
+    .ticker-w{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--bd);overflow:hidden;height:38px;background:rgba(4,8,15,.5);}
+    .ticker{display:flex;gap:3rem;white-space:nowrap;animation:tick 32s linear infinite;height:100%;align-items:center;padding-left:100%;}
+    @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .ticker span{font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);font-weight:600;}
+    .ticker span em{color:var(--teal);font-style:normal;}
+    .hc{position:relative;z-index:2;padding-block:90px 80px;}
+    .hpill{display:inline-flex;align-items:center;gap:.5rem;background:var(--ts);border:1px solid rgba(0,201,177,.2);border-radius:100px;padding:.3rem 1rem .3rem .5rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:2rem;}
+    .pdot{width:6px;height:6px;background:var(--teal);border-radius:50%;box-shadow:0 0 8px var(--teal);animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hname{font-family:var(--fh);font-weight:800;font-size:clamp(3.8rem,10.5vw,9rem);letter-spacing:-.025em;line-height:.93;color:var(--wh);margin-bottom:.6rem;}
+    .hname .ghost{-webkit-text-stroke:1px rgba(255,255,255,.15);color:transparent;display:block;}
+    .hrole{font-family:var(--fs);font-style:italic;font-size:clamp(1.05rem,2.2vw,1.45rem);color:var(--teal);margin-bottom:1.6rem;letter-spacing:.01em;}
+    .hbio{font-size:clamp(.93rem,1.5vw,1.04rem);color:var(--mu2);max-width:52ch;line-height:1.85;margin-bottom:2.8rem;}
+    .hbio strong{color:var(--tx);font-weight:600;}
+    .hacts{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3.5rem;}
+    .bf{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.85rem;background:var(--teal);color:var(--ink);font-family:var(--fb);font-weight:700;font-size:.79rem;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:transform .2s,box-shadow .25s;}
+    .bf:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,201,177,.3);}
+    .bg{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.85rem;border:1px solid var(--bd2);color:var(--tx);font-family:var(--fb);font-weight:600;font-size:.79rem;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:border-color .25s,color .25s,transform .2s;}
+    .bg:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+    .hkpi{display:flex;flex-wrap:wrap;gap:3rem;padding-top:2.5rem;border-top:1px solid var(--bd);}
+    .kv{font-family:var(--fh);font-weight:800;font-size:2.6rem;letter-spacing:-.02em;color:var(--wh);line-height:1;}
+    .kv sup{font-size:1.2rem;color:var(--teal);}
+    .kl{font-size:.71rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-top:.25rem;}
 
-    /* ============================================================
-       NAV
-    ============================================================ */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      z-index: 999;
-      transition: background .4s, box-shadow .4s;
-    }
-    #nav.scrolled {
-      background: rgba(8,12,20,.92);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 1px 0 var(--border);
-    }
-    .nav-inner {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      letter-spacing: .12em;
-      color: var(--white);
-    }
-    .nav-logo span { color: var(--cyan); }
-    .nav-links {
-      display: flex;
-      gap: 2.4rem;
-      align-items: center;
-    }
-    .nav-links a {
-      font-size: .8rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--muted);
-      transition: color .25s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 1.5px;
-      background: var(--cyan);
-      transition: width .3s var(--ease);
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      padding: .45rem 1.1rem;
-      border: 1px solid var(--cyan);
-      border-radius: 3px;
-      color: var(--cyan) !important;
-      font-size: .78rem !important;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      transition: background .25s, color .25s !important;
-    }
-    .nav-cta:hover {
-      background: var(--cyan) !important;
-      color: var(--bg) !important;
-    }
-    .nav-cta::after { display: none !important; }
+    /* ── ABOUT ── */
+    .ag{display:grid;grid-template-columns:340px 1fr;gap:5rem;align-items:start;margin-top:4rem;}
+    .pcard{background:var(--sur);border:1px solid var(--bd);border-radius:12px;overflow:hidden;position:sticky;top:calc(var(--nh) + 20px);}
+    .ctop{background:linear-gradient(135deg,var(--ink3),#162035);padding:2.2rem 2rem 1.8rem;position:relative;overflow:hidden;}
+    .ctop::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(0,201,177,.15),transparent 60%);}
+    .av{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#0066cc);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1.7rem;font-weight:800;color:var(--ink);margin-bottom:1.2rem;position:relative;z-index:1;box-shadow:0 0 0 3px rgba(0,201,177,.2),0 0 30px rgba(0,201,177,.2);}
+    .cn{font-family:var(--fh);font-weight:800;font-size:1.28rem;letter-spacing:.02em;color:var(--wh);position:relative;z-index:1;}
+    .cr{font-size:.77rem;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:.2rem;position:relative;z-index:1;}
+    .cbody{padding:1.5rem 2rem 2rem;}
+    .crow{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
+    .cic{width:32px;height:32px;flex-shrink:0;border-radius:7px;background:var(--ts);border:1px solid rgba(0,201,177,.15);display:flex;align-items:center;justify-content:center;}
+    .cic i{font-size:.77rem;color:var(--teal);}
+    .cl{font-size:.67rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.1rem;}
+    .cv2{font-size:.86rem;color:var(--tx);} .cv2 a:hover{color:var(--teal);}
+    .cdiv{height:1px;background:var(--bd);margin:1.2rem 0;}
+    .cchips{display:flex;flex-wrap:wrap;gap:.45rem;}
+    .chip{padding:.28rem .75rem;background:var(--ts);border:1px solid rgba(0,201,177,.15);border-radius:100px;font-size:.68rem;color:var(--teal);font-weight:700;letter-spacing:.06em;}
+    .chipa{background:var(--as);border-color:rgba(245,166,35,.2);color:var(--amb);}
+    .atxt .pull{font-family:var(--fs);font-style:italic;font-size:clamp(1.05rem,1.8vw,1.25rem);color:var(--tx);line-height:1.7;border-left:3px solid var(--teal);padding-left:1.5rem;margin-block:1.8rem;}
+    .atxt p{font-size:.96rem;color:var(--mu2);line-height:1.9;margin-bottom:1.1rem;}
+    .atxt p strong{color:var(--tx);font-weight:600;}
+    .certs{margin-top:2.2rem;}
+    .cer{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1rem;}
+    .cei{width:36px;height:36px;flex-shrink:0;border-radius:8px;background:var(--as);border:1px solid rgba(245,166,35,.18);display:flex;align-items:center;justify-content:center;}
+    .cei i{color:var(--amb);font-size:.84rem;}
+    .cet{font-size:.87rem;color:var(--tx);font-weight:600;}
+    .ced{font-size:.74rem;color:var(--mu);margin-top:.1rem;}
+    @media(max-width:960px){.ag{grid-template-columns:1fr;} .pcard{position:static;}}
 
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 1.5px;
-      background: var(--text);
-      transition: transform .3s, opacity .3s;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    /* ── SKILLS ── */
+    .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.4rem;margin-top:3.5rem;}
+    .sc{background:var(--sur);border:1px solid var(--bd);border-radius:10px;padding:2rem;position:relative;overflow:hidden;transition:transform .35s var(--ez),border-color .3s,box-shadow .3s;cursor:default;}
+    .sc::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:0;transition:opacity .3s;}
+    .sc:hover{transform:translateY(-6px);border-color:rgba(0,201,177,.25);box-shadow:0 24px 56px rgba(0,0,0,.45);}
+    .sc:hover::before{opacity:1;}
+    .sico{width:48px;height:48px;border-radius:10px;background:var(--ts);border:1px solid rgba(0,201,177,.18);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem;}
+    .sico i{font-size:1.1rem;color:var(--teal);}
+    .st{font-family:var(--fh);font-weight:700;font-size:1.08rem;letter-spacing:.02em;color:var(--wh);margin-bottom:.5rem;}
+    .sd{font-size:.85rem;color:var(--mu2);line-height:1.75;}
+    .stags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;}
+    .stag{padding:.22rem .62rem;background:var(--sur2);border-radius:4px;font-size:.69rem;color:var(--mu2);letter-spacing:.05em;}
+    .bbanner{margin-top:3rem;background:linear-gradient(135deg,var(--ink3),#0f1c35);border:1px solid var(--bd2);border-radius:10px;padding:2rem 2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+    .bico{font-size:2.2rem;flex-shrink:0;}
+    .bt{font-family:var(--fh);font-weight:800;font-size:1.12rem;color:var(--wh);margin-bottom:.3rem;}
+    .bd2t{font-size:.87rem;color:var(--mu2);line-height:1.7;max-width:56ch;}
+    .bbs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+    .bb{padding:.3rem .9rem;border-radius:4px;font-size:.71rem;font-weight:700;letter-spacing:.06em;}
+    .bbt{background:rgba(0,201,177,.1);color:var(--teal);border:1px solid rgba(0,201,177,.18);}
+    .bba{background:rgba(245,166,35,.1);color:var(--amb);border:1px solid rgba(245,166,35,.2);}
+    .bbs2{background:rgba(255,255,255,.06);color:var(--mu2);border:1px solid var(--bd2);}
 
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      .nav-links {
-        position: fixed;
-        top: var(--nav-h); left: 0; right: 0;
-        background: rgba(8,12,20,.97);
-        flex-direction: column;
-        gap: 0;
-        padding: 1.5rem 0 2rem;
-        transform: translateY(-110%);
-        transition: transform .4s var(--ease);
-        backdrop-filter: blur(20px);
-      }
-      .nav-links.open { transform: none; }
-      .nav-links a { padding: .9rem 2rem; font-size: .9rem; color: var(--text); }
-      .nav-cta { margin: .5rem 2rem 0; }
-    }
+    /* ── TOOLKIT ── */
+    .tkg{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.4rem;margin-top:3.5rem;}
+    .tgc{background:var(--sur);border:1px solid var(--bd);border-radius:10px;padding:1.8rem 2rem;}
+    .tgh{display:flex;align-items:center;gap:.65rem;margin-bottom:1.4rem;}
+    .tghi{width:34px;height:34px;border-radius:7px;background:var(--ts);border:1px solid rgba(0,201,177,.15);display:flex;align-items:center;justify-content:center;}
+    .tghi i{font-size:.82rem;color:var(--teal);}
+    .tgt{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+    .tts{display:flex;flex-wrap:wrap;gap:.5rem;}
+    .tt{padding:.38rem .85rem;background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:5px;font-size:.77rem;color:var(--mu2);font-weight:500;transition:border-color .2s,color .2s,background .2s;cursor:default;}
+    .tt:hover{border-color:rgba(0,201,177,.35);color:var(--teal);background:var(--ts);}
+    .pw{margin-top:2.5rem;max-width:640px;}
+    .ph{font-family:var(--fh);font-weight:700;font-size:.97rem;color:var(--wh);margin-bottom:1.5rem;letter-spacing:.04em;}
+    .pi{margin-bottom:1.1rem;}
+    .pih{display:flex;justify-content:space-between;margin-bottom:.4rem;}
+    .pin{font-size:.8rem;color:var(--tx);font-weight:500;}
+    .pip{font-size:.75rem;color:var(--teal);font-weight:700;}
+    .pbar{height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;}
+    .pfill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--teal),#00e5cc);width:0;transition:width 1.2s var(--ez);}
 
-    /* ============================================================
-       HERO — canvas data-grid bg
-    ============================================================ */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: var(--nav-h);
-    }
-    #hero-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      opacity: .55;
-    }
-    .hero-glow {
-      position: absolute;
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,212,255,.12) 0%, transparent 65%);
-      top: -180px; left: -180px;
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding-block: 80px;
-    }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: var(--cyan-dim);
-      border: 1px solid rgba(0,212,255,.2);
-      border-radius: 100px;
-      padding: .35rem .9rem;
-      font-size: .72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      margin-bottom: 2rem;
-    }
-    .hero-tag i { font-size: .65rem; }
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(4rem, 11vw, 9.5rem);
-      letter-spacing: .04em;
-      line-height: .92;
-      color: var(--white);
-      margin-bottom: .7rem;
-    }
-    .hero-name .line2 {
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
-    }
-    .hero-title {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
-      color: var(--cyan);
-      letter-spacing: .02em;
-      margin-bottom: 1.5rem;
-    }
-    .hero-tagline {
-      font-size: clamp(.95rem, 1.6vw, 1.1rem);
-      color: var(--muted);
-      max-width: 46ch;
-      line-height: 1.75;
-      margin-bottom: 2.8rem;
-    }
-    .hero-tagline strong { color: var(--text); font-weight: 500; }
-    .hero-btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .85rem 2rem;
-      background: var(--cyan);
-      color: var(--bg);
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: .85rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      border-radius: 3px;
-      transition: background .25s, transform .2s, box-shadow .25s;
-    }
-    .btn-primary:hover {
-      background: #33dcff;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(0,212,255,.3);
-    }
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .85rem 2rem;
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: .85rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      border-radius: 3px;
-      transition: border-color .25s, color .25s, transform .2s;
-    }
-    .btn-outline:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
-      transform: translateY(-2px);
-    }
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      margin-top: 4rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--border);
-    }
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      color: var(--white);
-      letter-spacing: .04em;
-      line-height: 1;
-    }
-    .hero-stat-num span { color: var(--cyan); }
-    .hero-stat-label {
-      font-size: .75rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-top: .25rem;
-    }
+    /* ── EXPERIENCE ── */
+    .tl{margin-top:3.5rem;position:relative;padding-left:2.8rem;}
+    .tl::before{content:'';position:absolute;left:9px;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--teal) 0%,transparent 100%);}
+    .tli{position:relative;margin-bottom:2.8rem;}
+    .tld{position:absolute;left:-2.8rem;top:6px;width:18px;height:18px;border-radius:50%;background:var(--ink);border:2px solid var(--teal);box-shadow:0 0 16px rgba(0,201,177,.4);}
+    .tld::after{content:'';position:absolute;inset:3px;background:var(--teal);border-radius:50%;}
+    .tlcard{background:var(--sur);border:1px solid var(--bd);border-radius:10px;padding:2rem 2.2rem 1.8rem;transition:border-color .3s;}
+    .tlcard:hover{border-color:rgba(0,201,177,.2);}
+    .tltp{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:.35rem;}
+    .tlr{font-family:var(--fh);font-weight:800;font-size:1.22rem;color:var(--wh);}
+    .tlb{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .85rem;background:var(--ts);border:1px solid rgba(0,201,177,.18);border-radius:100px;color:var(--teal);white-space:nowrap;}
+    .tlbv{background:var(--as);border-color:rgba(245,166,35,.2);color:var(--amb);}
+    .tlo{font-size:.87rem;color:var(--mu2);margin-bottom:1.3rem;display:flex;align-items:center;gap:.45rem;}
+    .tlo i{font-size:.74rem;color:var(--amb);}
+    .tll{display:flex;flex-direction:column;gap:.5rem;}
+    .tll li{display:flex;gap:.75rem;font-size:.88rem;color:var(--mu2);line-height:1.65;}
+    .tll li::before{content:'▹';color:var(--teal);flex-shrink:0;margin-top:.08em;}
+    .rco{margin-top:2.5rem;background:linear-gradient(135deg,rgba(0,201,177,.07),rgba(0,201,177,.03));border:1px solid rgba(0,201,177,.2);border-radius:10px;padding:1.8rem 2rem;display:flex;gap:1.2rem;align-items:flex-start;}
+    .rcoic{font-size:1.5rem;flex-shrink:0;margin-top:.1rem;}
+    .rcot{font-family:var(--fh);font-weight:700;font-size:.95rem;color:var(--wh);margin-bottom:.35rem;}
+    .rcob{font-size:.85rem;color:var(--mu2);line-height:1.75;}
+    .rcos{margin-top:.75rem;font-size:.77rem;color:var(--teal);font-weight:700;}
 
-    /* ============================================================
-       ABOUT
-    ============================================================ */
-    #about { background: var(--bg2); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .about-visual {
-      position: relative;
-    }
-    .about-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    }
-    .about-avatar {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--cyan), #0066cc);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: var(--bg);
-      letter-spacing: .05em;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 40px rgba(0,212,255,.25);
-    }
-    .about-name-card {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      letter-spacing: .06em;
-      color: var(--white);
-      margin-bottom: .25rem;
-    }
-    .about-role-card {
-      font-size: .82rem;
-      color: var(--cyan);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-    .about-contact-row {
-      display: flex;
-      flex-direction: column;
-      gap: .55rem;
-    }
-    .about-contact-item {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      font-size: .84rem;
-      color: var(--muted);
-    }
-    .about-contact-item i {
-      color: var(--cyan);
-      font-size: .85rem;
-      width: 16px;
-      text-align: center;
-    }
-    .about-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      margin-top: 1.8rem;
-    }
-    .badge {
-      padding: .3rem .8rem;
-      background: var(--cyan-dim);
-      border: 1px solid rgba(0,212,255,.18);
-      border-radius: 100px;
-      font-size: .72rem;
-      color: var(--cyan);
-      letter-spacing: .08em;
-    }
-    .about-text p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.85;
-      margin-bottom: 1.25rem;
-    }
-    .about-text p strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-    .about-text .highlight {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--text);
-      line-height: 1.6;
-      border-left: 3px solid var(--cyan);
-      padding-left: 1.25rem;
-      margin-block: 1.5rem;
-    }
+    /* ── EDUCATION ── */
+    .edg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:3.5rem;}
+    .edc{background:var(--sur);border:1px solid var(--bd);border-radius:10px;padding:1.8rem 2rem;transition:border-color .3s;cursor:default;}
+    .edc:hover{border-color:rgba(0,201,177,.2);}
+    .edi{font-size:1.8rem;margin-bottom:1rem;}
+    .edd{font-family:var(--fh);font-weight:800;font-size:1.03rem;color:var(--wh);margin-bottom:.25rem;}
+    .edi2{font-size:.83rem;color:var(--teal);font-weight:600;margin-bottom:.5rem;}
+    .edy{font-size:.74rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;}
+    .rfg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:3.5rem;}
+    .rfc{background:var(--sur);border:1px solid var(--bd);border-radius:10px;padding:1.8rem 2rem;}
+    .rfa{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,rgba(0,201,177,.4),rgba(0,102,204,.4));display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:1rem;color:var(--wh);margin-bottom:1rem;}
+    .rfn{font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--wh);margin-bottom:.2rem;}
+    .rft{font-size:.79rem;color:var(--teal);font-weight:600;margin-bottom:.8rem;}
+    .rfc2{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--mu2);}
+    .rfc2 i{color:var(--mu);font-size:.77rem;}
 
-    @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
+    /* ── INTERESTS ── */
+    .ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem;margin-top:3.5rem;}
+    .ic{background:var(--sur);border:1px solid var(--bd);border-radius:10px;padding:1.8rem 1.6rem;text-align:center;transition:transform .3s var(--ez),border-color .3s;cursor:default;}
+    .ic:hover{transform:translateY(-5px);border-color:rgba(0,201,177,.22);}
+    .iem{font-size:2rem;display:block;margin-bottom:.9rem;}
+    .it{font-family:var(--fh);font-weight:700;font-size:1rem;color:var(--wh);margin-bottom:.35rem;}
+    .is{font-size:.82rem;color:var(--mu2);line-height:1.65;}
 
-    /* ============================================================
-       SKILLS / WHAT I BRING
-    ============================================================ */
-    #skills { background: var(--bg); }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
-    .skill-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform .3s var(--ease), border-color .3s, box-shadow .3s;
-      cursor: default;
-    }
-    .skill-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--cyan-dim) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    .skill-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0,212,255,.3);
-      box-shadow: 0 20px 50px rgba(0,0,0,.4), 0 0 0 1px rgba(0,212,255,.08);
-    }
-    .skill-card:hover::after { opacity: 1; }
-    .skill-icon {
-      width: 50px; height: 50px;
-      border-radius: 10px;
-      background: var(--cyan-dim);
-      border: 1px solid rgba(0,212,255,.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-      position: relative;
-      z-index: 1;
-    }
-    .skill-icon i {
-      font-size: 1.2rem;
-      color: var(--cyan);
-    }
-    .skill-title {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      letter-spacing: .06em;
-      color: var(--white);
-      margin-bottom: .6rem;
-      position: relative;
-      z-index: 1;
-    }
-    .skill-desc {
-      font-size: .88rem;
-      color: var(--muted);
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
+    /* ── CONTACT ── */
+    .cw{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;margin-top:3.5rem;}
+    .cii{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.8rem;}
+    .cib{width:44px;height:44px;flex-shrink:0;border-radius:9px;background:var(--ts);border:1px solid rgba(0,201,177,.18);display:flex;align-items:center;justify-content:center;}
+    .cib i{color:var(--teal);font-size:.95rem;}
+    .cil{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);margin-bottom:.2rem;}
+    .civ{font-size:.92rem;color:var(--tx);} .civ a:hover{color:var(--teal);}
+    .avail{display:inline-flex;align-items:center;gap:.55rem;font-size:.77rem;color:#4ade80;margin-top:1.8rem;}
+    .avd{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgba(74,222,128,.5);animation:blink 2s infinite;}
+    .fg2{margin-bottom:1.2rem;}
+    .fl2{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:.5rem;font-weight:600;}
+    .fi2{width:100%;padding:.82rem 1.1rem;background:var(--sur);border:1px solid var(--bd);border-radius:6px;color:var(--tx);font-family:var(--fb);font-size:.88rem;outline:none;transition:border-color .25s,box-shadow .25s;}
+    .fi2::placeholder{color:rgba(103,112,136,.55);}
+    .fi2:focus{border-color:rgba(0,201,177,.4);box-shadow:0 0 0 3px rgba(0,201,177,.07);}
+    textarea.fi2{resize:vertical;min-height:130px;}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .fbtn{width:100%;padding:.9rem;background:var(--teal);color:var(--ink);border:none;border-radius:6px;font-family:var(--fb);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:transform .2s,box-shadow .25s;}
+    .fbtn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,201,177,.3);}
+    .fok{display:none;text-align:center;padding:2.5rem 1.5rem;color:#4ade80;}
+    .fok i{font-size:2.5rem;display:block;margin-bottom:.75rem;}
+    .fok p{font-size:.94rem;color:var(--mu2);}
+    @media(max-width:900px){.cw{grid-template-columns:1fr;gap:2.5rem;}}
+    @media(max-width:560px){.frow{grid-template-columns:1fr;}}
 
-    /* ============================================================
-       TOOLKIT
-    ============================================================ */
-    #toolkit { background: var(--bg2); }
-    .toolkit-wrap {
-      margin-top: 3.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .toolkit-group {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-    }
-    .toolkit-group-title {
-      font-size: .72rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-    }
-    .toolkit-group-title i { font-size: .85rem; }
-    .toolkit-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-    }
-    .tool-tag {
-      padding: .4rem .9rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: .8rem;
-      color: var(--text);
-      font-weight: 400;
-      letter-spacing: .04em;
-      transition: border-color .2s, color .2s, background .2s;
-      cursor: default;
-    }
-    .tool-tag:hover {
-      border-color: rgba(0,212,255,.4);
-      color: var(--cyan);
-      background: var(--cyan-dim);
-    }
+    /* ── FOOTER ── */
+    footer{background:var(--ink2);border-top:1px solid var(--bd);padding:2.2rem 0;}
+    .fti{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;}
+    .ftl{font-family:var(--fh);font-weight:800;font-size:1.12rem;letter-spacing:.04em;color:var(--wh);}
+    .ftl span{color:var(--teal);}
+    .ftc{font-size:.75rem;color:var(--mu);}
+    .fts{display:flex;gap:.75rem;}
+    .fts a{width:34px;height:34px;border-radius:7px;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;color:var(--mu);font-size:.82rem;transition:border-color .25s,color .25s;}
+    .fts a:hover{border-color:var(--teal);color:var(--teal);}
 
-    /* ============================================================
-       EXPERIENCE
-    ============================================================ */
-    #experience { background: var(--bg); }
-    .timeline {
-      margin-top: 3.5rem;
-      position: relative;
-      padding-left: 2.5rem;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--cyan), transparent);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-    }
-    .timeline-dot {
-      position: absolute;
-      left: -2.5rem;
-      top: 6px;
-      width: 16px; height: 16px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 2px solid var(--cyan);
-      box-shadow: 0 0 14px var(--cyan-glow);
-    }
-    .timeline-dot::after {
-      content: '';
-      position: absolute;
-      inset: 3px;
-      background: var(--cyan);
-      border-radius: 50%;
-    }
-    .exp-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem 2rem 1.75rem;
-      transition: border-color .3s;
-    }
-    .exp-card:hover { border-color: rgba(0,212,255,.2); }
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: .75rem;
-      margin-bottom: .5rem;
-    }
-    .exp-role {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      letter-spacing: .05em;
-      color: var(--white);
-    }
-    .exp-period {
-      font-size: .75rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      background: var(--cyan-dim);
-      border: 1px solid rgba(0,212,255,.15);
-      border-radius: 100px;
-      padding: .25rem .85rem;
-      white-space: nowrap;
-    }
-    .exp-org {
-      font-size: .9rem;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: .45rem;
-    }
-    .exp-org i { font-size: .75rem; color: var(--gold); }
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-    }
-    .exp-list li {
-      display: flex;
-      gap: .75rem;
-      font-size: .9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .exp-list li::before {
-      content: '▹';
-      color: var(--cyan);
-      flex-shrink: 0;
-      margin-top: .05em;
-    }
-
-    /* ============================================================
-       INTERESTS
-    ============================================================ */
-    #interests { background: var(--bg2); }
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 3.5rem;
-    }
-    .interest-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem 1.75rem;
-      text-align: center;
-      transition: transform .3s var(--ease), border-color .3s;
-      cursor: default;
-    }
-    .interest-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(0,212,255,.25);
-    }
-    .interest-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .interest-title {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      letter-spacing: .06em;
-      color: var(--white);
-      margin-bottom: .4rem;
-    }
-    .interest-sub {
-      font-size: .82rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ============================================================
-       CONTACT
-    ============================================================ */
-    #contact { background: var(--bg); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.35fr;
-      gap: 4rem;
-      margin-top: 3.5rem;
-    }
-    .contact-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .contact-icon-box {
-      width: 44px; height: 44px;
-      flex-shrink: 0;
-      border-radius: 8px;
-      background: var(--cyan-dim);
-      border: 1px solid rgba(0,212,255,.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .contact-icon-box i {
-      color: var(--cyan);
-      font-size: .95rem;
-    }
-    .contact-info-label {
-      font-size: .72rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: .2rem;
-    }
-    .contact-info-val {
-      font-size: .95rem;
-      color: var(--text);
-    }
-    .contact-info-val a:hover { color: var(--cyan); }
-    .contact-availability {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: .78rem;
-      color: #4ade80;
-      margin-top: 2rem;
-    }
-    .avail-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 8px rgba(74,222,128,.5);
-      animation: pulse-dot 2s infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .4; }
-    }
-
-    /* Form */
-    .form-group { margin-bottom: 1.25rem; }
-    .form-label {
-      display: block;
-      font-size: .75rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: .5rem;
-    }
-    .form-input {
-      width: 100%;
-      padding: .85rem 1.1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: .9rem;
-      outline: none;
-      transition: border-color .25s, box-shadow .25s;
-    }
-    .form-input::placeholder { color: rgba(122,133,153,.6); }
-    .form-input:focus {
-      border-color: rgba(0,212,255,.4);
-      box-shadow: 0 0 0 3px rgba(0,212,255,.07);
-    }
-    textarea.form-input {
-      resize: vertical;
-      min-height: 130px;
-    }
-    .form-btn {
-      width: 100%;
-      padding: .9rem;
-      background: var(--cyan);
-      color: var(--bg);
-      border: none;
-      border-radius: 5px;
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: .88rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .25s, transform .2s, box-shadow .25s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-    }
-    .form-btn:hover {
-      background: #33dcff;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0,212,255,.3);
-    }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-      color: #4ade80;
-      font-size: .95rem;
-    }
-    .form-success i { font-size: 2rem; display: block; margin-bottom: .75rem; }
-
-    @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 0;
-      text-align: center;
-    }
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      letter-spacing: .1em;
-      color: var(--white);
-    }
-    .footer-logo span { color: var(--cyan); }
-    .footer-copy {
-      font-size: .78rem;
-      color: var(--muted);
-    }
-    .footer-socials {
-      display: flex;
-      gap: 1rem;
-    }
-    .footer-socials a {
-      width: 34px; height: 34px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: .85rem;
-      transition: border-color .25s, color .25s;
-    }
-    .footer-socials a:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-
-    /* ============================================================
-       BACK TO TOP
-    ============================================================ */
-    #back-top {
-      position: fixed;
-      bottom: 2rem; right: 2rem;
-      width: 42px; height: 42px;
-      background: var(--cyan);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--bg);
-      font-size: .9rem;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .3s, transform .3s, background .25s;
-      z-index: 998;
-      border: none;
-    }
-    #back-top.show {
-      opacity: 1;
-      transform: none;
-    }
-    #back-top:hover { background: #33dcff; }
-
-    /* ============================================================
-       RESPONSIVE TWEAKS
-    ============================================================ */
-    @media (max-width: 600px) {
-      .section-wrap { padding-block: 70px 60px; }
-      .hero-stats { gap: 1.5rem; }
-    }
+    /* ── BACK TOP ── */
+    #btt{position:fixed;bottom:1.8rem;right:1.8rem;width:40px;height:40px;background:var(--teal);border-radius:7px;border:none;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:.85rem;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;z-index:997;}
+    #btt.show{opacity:1;transform:none;} #btt:hover{background:#33e8d0;}
   </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <nav id="nav">
-    <div class="container nav-inner">
-      <a href="#hero" class="nav-logo">W<span>.</span>UMBA</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#toolkit">Toolkit</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#interests">Interests</a></li>
-        <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-      </ul>
-    </div>
-  </nav>
+<div id="prog"></div>
 
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
-  <section id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-glow"></div>
-    <div class="container">
-      <div class="hero-content">
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <div class="wrap ni">
+    <a href="#hero" class="logo">WILFRED<span></span>UMBA</a>
+    <button class="burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nlinks" id="nl">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#toolkit">Toolkit</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nhire">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <div class="hero-tag reveal">
-          <i class="fa-solid fa-circle-nodes"></i>
-          Available for Opportunities
-        </div>
-
-        <h1 class="hero-name reveal reveal-delay-1">
-          <div>WILFRED</div>
-          <div class="line2">UMBA</div>
-        </h1>
-
-        <p class="hero-title reveal reveal-delay-2">
-          Data Analyst &nbsp;·&nbsp; Economics &amp; Statistics &nbsp;·&nbsp; Full-Stack 📈
-        </p>
-
-        <p class="hero-tagline reveal reveal-delay-3">
-          I don't just query data — I <strong>translate it into strategic stories</strong> that drive
-          policy reform and business growth. Bridging econometric modeling with actionable intelligence.
-        </p>
-
-        <div class="hero-btns reveal reveal-delay-4">
-          <a href="#contact" class="btn-primary">
-            <i class="fa-solid fa-paper-plane"></i> Contact Me
-          </a>
-          <a href="#skills" class="btn-outline">
-            <i class="fa-solid fa-chart-line"></i> View Projects
-          </a>
-        </div>
-
-        <div class="hero-stats reveal reveal-delay-5">
-          <div>
-            <div class="hero-stat-num">3<span>+</span></div>
-            <div class="hero-stat-label">Years Experience</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">4<span>+</span></div>
-            <div class="hero-stat-label">Tools Mastered</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">∞</div>
-            <div class="hero-stat-label">Data-Driven Insights</div>
-          </div>
-        </div>
-
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <canvas id="cnv"></canvas>
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <div class="hc">
+      <div class="hpill r"><span class="pdot"></span> Open to Full-Time &amp; Contract Roles</div>
+      <h1 class="hname r d1"><span>WILFRED</span><span class="ghost">JUMA UMBA</span></h1>
+      <p class="hrole r d2">Data Analyst &nbsp;·&nbsp; Economics &amp; Statistics Professional &nbsp;·&nbsp; Full-Stack 📈</p>
+      <p class="hbio r d3">I don't just query data — I <strong>translate it into strategic stories</strong> that drive policy and business growth. With a background in <strong>Economics and Statistics</strong>, I bridge the gap between complex econometric modelling and actionable business intelligence.</p>
+      <div class="hacts r d4">
+        <a href="#contact" class="bf"><i class="fa-solid fa-paper-plane"></i> Hire Me</a>
+        <a href="#experience" class="bg"><i class="fa-solid fa-briefcase"></i> View Experience</a>
+        <a href="mailto:info.wilfredumba@gmail.com" class="bg"><i class="fa-solid fa-envelope"></i> Email Me</a>
+      </div>
+      <div class="hkpi r d5">
+        <div><div class="kv">3<sup>+</sup></div><div class="kl">Years in Analytics</div></div>
+        <div><div class="kv">50<sup>+</sup></div><div class="kl">Students Mentored</div></div>
+        <div><div class="kv">5<sup>+</sup></div><div class="kl">Tools Mastered</div></div>
+        <div><div class="kv">2<sup>×</sup></div><div class="kl">Certified Analyst</div></div>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="ticker-w">
+    <div class="ticker">
+      <span><em>Python</em></span><span>·</span><span><em>SQL</em> — MySQL</span><span>·</span><span>Power BI</span><span>·</span><span>Tableau</span><span>·</span><span><em>KIPPRA</em> — Policy Research</span><span>·</span><span>Econometric Modelling</span><span>·</span><span>STATA &amp; SPSS</span><span>·</span><span>Data Storytelling</span><span>·</span><span><em>BSc Economics &amp; Statistics</em></span><span>·</span><span>Maasai Mara University</span><span>·</span><span>Regression Analysis</span><span>·</span><span>Time Series Forecasting</span><span>·</span>
+      <span><em>Python</em></span><span>·</span><span><em>SQL</em> — MySQL</span><span>·</span><span>Power BI</span><span>·</span><span>Tableau</span><span>·</span><span><em>KIPPRA</em> — Policy Research</span><span>·</span><span>Econometric Modelling</span><span>·</span><span>STATA &amp; SPSS</span><span>·</span><span>Data Storytelling</span><span>·</span>
+    </div>
+  </div>
+</section>
 
-  <!-- ============================================================
-       ABOUT
-  ============================================================ -->
-  <section id="about" class="section-wrap">
-    <div class="container">
-      <div class="big-num">01</div>
-      <div class="about-grid">
-
-        <!-- Visual Card -->
-        <div class="about-visual reveal">
-          <div class="about-card">
-            <div class="about-avatar">WU</div>
-            <div class="about-name-card">Wilfred Umba</div>
-            <div class="about-role-card">Data Analyst &amp; Economist</div>
-            <div class="about-contact-row">
-              <div class="about-contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <span>info.wilfredumba@gmail.com</span>
-              </div>
-              <div class="about-contact-item">
-                <i class="fa-solid fa-phone"></i>
-                <span>+254 742 908 745</span>
-              </div>
-              <div class="about-contact-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>Nairobi, Kenya</span>
-              </div>
-            </div>
-            <div class="about-badge-row">
-              <span class="badge">KIPPRA</span>
-              <span class="badge">BI &amp; Analytics</span>
-              <span class="badge">Policy Research</span>
-              <span class="badge">FinTech</span>
-            </div>
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="sec sec-alt">
+  <div class="deco">01</div>
+  <div class="wrap">
+    <div class="lbl r">About Me</div>
+    <h2 class="h2 r d1">The Analyst <em>Behind</em><br>the Data</h2>
+    <div class="ag">
+      <!-- Profile Card -->
+      <div class="pcard r d1">
+        <div class="ctop">
+          <div class="av">WU</div>
+          <div class="cn">Wilfred Juma Umba</div>
+          <div class="cr">Data Analyst · Economics &amp; Statistics</div>
+        </div>
+        <div class="cbody">
+          <div class="crow">
+            <div class="cic"><i class="fa-solid fa-envelope"></i></div>
+            <div><div class="cl">Email</div><div class="cv2"><a href="mailto:info.wilfredumba@gmail.com">info.wilfredumba@gmail.com</a></div></div>
+          </div>
+          <div class="crow">
+            <div class="cic"><i class="fa-solid fa-phone"></i></div>
+            <div><div class="cl">Phone / WhatsApp</div><div class="cv2"><a href="tel:+254742908745">+254 742 908 745</a></div></div>
+          </div>
+          <div class="crow">
+            <div class="cic"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div><div class="cl">LinkedIn</div><div class="cv2"><a href="https://linkedin.com/in/wilfred-umba-35806b257" target="_blank" rel="noopener">wilfred-umba-35806b257</a></div></div>
+          </div>
+          <div class="crow">
+            <div class="cic"><i class="fa-solid fa-location-dot"></i></div>
+            <div><div class="cl">Location</div><div class="cv2">Nairobi, Kenya</div></div>
+          </div>
+          <div class="cdiv"></div>
+          <div class="cchips">
+            <span class="chip">KIPPRA</span><span class="chip">Policy Research</span>
+            <span class="chip">Business Intelligence</span>
+            <span class="chip chipa">FinTech</span><span class="chip chipa">Forecasting</span>
           </div>
         </div>
+      </div>
 
-        <!-- Text -->
-        <div class="about-text">
-          <div class="eyebrow reveal">About Me</div>
-          <h2 class="section-title reveal reveal-delay-1">The <span>Analyst</span><br>Behind the Data</h2>
-
-          <div class="reveal reveal-delay-2">
-            <p class="highlight">
-              "I don't just query data; I translate it into strategic stories that drive policy and business growth."
-            </p>
+      <!-- Text -->
+      <div class="atxt">
+        <div class="pull r d2">"I don't just query data; I translate it into strategic stories that drive policy and business growth."</div>
+        <p class="r d3">With a <strong>BSc in Economics and Statistics</strong> from Maasai Mara University, I occupy a rare intersection — someone who understands both the mathematical rigour of econometric modelling and the strategic acumen required to make data genuinely actionable for business and government stakeholders.</p>
+        <p class="r d3">My internship at <strong>KIPPRA (Kenya Institute for Public Policy Research and Analysis)</strong> sharpened my ability to manage large-scale national expenditure datasets — ensuring the data integrity that underpins credible policy briefs consumed at the highest levels of government, formally endorsed by Senior Statistician Samuel Kaunde.</p>
+        <p class="r d3">As a <strong>Freelance Analyst and Research Tutor</strong> since January 2023, I've designed econometric models, built executive Power BI dashboards, and guided stakeholders through complex statistical findings — developing a rare blend of <strong>technical depth and communication clarity</strong> that most analysts lack.</p>
+        <p class="r d3">I've also mentored <strong>50+ students</strong> at Maasai Mara University in statistics and data tools — because knowledge that isn't shared is knowledge wasted.</p>
+        <div class="certs r d4">
+          <div class="cer">
+            <div class="cei"><i class="fa-solid fa-certificate"></i></div>
+            <div><div class="cet">Professional Certificate in Policy Research &amp; Data Visualization</div><div class="ced">July 2024</div></div>
           </div>
-
-          <div class="reveal reveal-delay-3">
-            <p>
-              With a solid foundation in <strong>Economics and Statistics</strong>, I occupy a rare intersection —
-              someone who understands both the mathematical rigour of econometric modelling and the business acumen
-              required to make data actionable.
-            </p>
-            <p>
-              My work at <strong>KIPPRA</strong> sharpened my ability to manage large-scale national datasets,
-              ensuring the data integrity that underpins credible policy research. I pair this with
-              <strong>full-stack analytical capability</strong> — from raw SQL extraction and Python modelling
-              to interactive Power BI dashboards that executives actually use.
-            </p>
-            <p>
-              Whether it's forecasting market trends, evaluating fiscal policy, or building data pipelines,
-              I bring a <strong>360° perspective</strong> that bridges technical depth with strategic clarity.
-            </p>
+          <div class="cer">
+            <div class="cei"><i class="fa-brands fa-python"></i></div>
+            <div><div class="cet">Certificate in Data Analysis with Python</div><div class="ced">March 2024</div></div>
           </div>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       SKILLS / WHAT I BRING
-  ============================================================ -->
-  <section id="skills" class="section-wrap">
-    <div class="container">
-      <div class="big-num">02</div>
-      <div class="eyebrow reveal">What I Bring</div>
-      <h2 class="section-title reveal reveal-delay-1">Core <span>Capabilities</span></h2>
-      <p class="section-sub reveal reveal-delay-2">
-        A full-spectrum analytical toolkit — from architecture to visualisation — built for real-world impact.
-      </p>
-
-      <div class="skills-grid">
-
-        <div class="skill-card reveal reveal-delay-1">
-          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
-          <div class="skill-title">Data Architecture &amp; Integrity</div>
-          <p class="skill-desc">
-            Hands-on experience managing and cleaning large-scale national expenditure datasets at KIPPRA,
-            ensuring the data integrity required for credible policy insights and research publications.
-          </p>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-2">
-          <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
-          <div class="skill-title">Advanced Analytics</div>
-          <p class="skill-desc">
-            Python (Pandas, NumPy) and SQL expertise in data wrangling, time-series analysis, and econometric
-            modelling for accurate trend forecasting and decision-support systems.
-          </p>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-3">
-          <div class="skill-icon"><i class="fa-solid fa-chart-pie"></i></div>
-          <div class="skill-title">Visual Storytelling</div>
-          <p class="skill-desc">
-            Power BI and Tableau dashboards that transform raw numbers into interactive, executive-ready
-            visualisations designed for fast, confident decision-making.
-          </p>
-        </div>
-
-        <div class="skill-card reveal reveal-delay-4">
-          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
-          <div class="skill-title">Full-Stack Capability</div>
-          <p class="skill-desc">
-            Ability to architect and build data-driven applications end-to-end using Python, SQL,
-            JavaScript, and PHP — bridging the gap between analysis and production deployment.
-          </p>
-        </div>
-
+<!-- ═══ SKILLS ═══ -->
+<section id="skills" class="sec">
+  <div class="deco">02</div>
+  <div class="wrap">
+    <div class="lbl r">Core Capabilities</div>
+    <h2 class="h2 r d1">What I <em>Bring</em></h2>
+    <p class="sdesc r d2">A full-spectrum analytical toolkit built around the "Analyst Brain" framework — Technical, Analytical, and Soft skills in balance.</p>
+    <div class="sg">
+      <div class="sc r d1">
+        <div class="sico"><i class="fa-solid fa-database"></i></div>
+        <div class="st">Data Architecture &amp; Integrity</div>
+        <p class="sd">Hands-on management of large-scale national expenditure datasets at KIPPRA. Rigorous cleaning, validation, and categorisation ensuring policy-grade data integrity.</p>
+        <div class="stags"><span class="stag">ETL</span><span class="stag">Data Cleaning</span><span class="stag">MySQL</span><span class="stag">phpMyAdmin</span></div>
+      </div>
+      <div class="sc r d2">
+        <div class="sico"><i class="fa-solid fa-brain"></i></div>
+        <div class="st">Econometric &amp; Statistical Modelling</div>
+        <p class="sd">Regression modelling, hypothesis testing, time-series forecasting and ANOVA using Stata, SPSS, Python and Excel — supporting credible research and business conclusions.</p>
+        <div class="stags"><span class="stag">STATA</span><span class="stag">Regression</span><span class="stag">Forecasting</span><span class="stag">SPSS</span></div>
+      </div>
+      <div class="sc r d3">
+        <div class="sico"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="st">Visual Storytelling &amp; BI</div>
+        <p class="sd">High-impact interactive dashboards in Power BI and Tableau — transforming raw data into executive-ready visual narratives that accelerate decision-making at all levels.</p>
+        <div class="stags"><span class="stag">Power BI</span><span class="stag">Tableau</span><span class="stag">DAX</span><span class="stag">Excel</span></div>
+      </div>
+      <div class="sc r d4">
+        <div class="sico"><i class="fa-solid fa-code"></i></div>
+        <div class="st">Full-Stack Analytical Dev</div>
+        <p class="sd">End-to-end data application development — Python (Pandas, NumPy), SQL databases, JavaScript and PHP front-end. From raw pipeline to production-ready insight.</p>
+        <div class="stags"><span class="stag">Python</span><span class="stag">SQL</span><span class="stag">JavaScript</span><span class="stag">PHP</span><span class="stag">HTML/CSS</span></div>
+      </div>
+      <div class="sc r d5">
+        <div class="sico"><i class="fa-solid fa-comments"></i></div>
+        <div class="st">Research Consulting</div>
+        <p class="sd">Guiding stakeholders through complex statistical results with clarity and business context. Experienced advising research clients and mentoring 50+ students.</p>
+        <div class="stags"><span class="stag">Stakeholder Comms</span><span class="stag">Mentoring</span><span class="stag">Methodology</span></div>
+      </div>
+      <div class="sc r d6">
+        <div class="sico"><i class="fa-solid fa-lightbulb"></i></div>
+        <div class="st">Strategic Business Acumen</div>
+        <p class="sd">Bridging econometric outputs and real-world strategy — whether policy recommendations for government or growth intelligence for business leaders in FinTech and beyond.</p>
+        <div class="stags"><span class="stag">Policy</span><span class="stag">FinTech</span><span class="stag">Market Analysis</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- ============================================================
-       TOOLKIT
-  ============================================================ -->
-  <section id="toolkit" class="section-wrap">
-    <div class="container">
-      <div class="big-num">03</div>
-      <div class="eyebrow reveal">Tech Stack</div>
-      <h2 class="section-title reveal reveal-delay-1">Core <span>Toolkit</span></h2>
-      <p class="section-sub reveal reveal-delay-2">
-        Precision tools, carefully selected for depth and breadth across the full data lifecycle.
-      </p>
-
-      <div class="toolkit-wrap">
-
-        <div class="toolkit-group reveal reveal-delay-1">
-          <div class="toolkit-group-title">
-            <i class="fa-solid fa-terminal"></i> Languages
-          </div>
-          <div class="toolkit-tags">
-            <span class="tool-tag">SQL (MySQL)</span>
-            <span class="tool-tag">Python</span>
-            <span class="tool-tag">Pandas</span>
-            <span class="tool-tag">NumPy</span>
-            <span class="tool-tag">JavaScript</span>
-            <span class="tool-tag">PHP</span>
-          </div>
+    <div class="bbanner r">
+      <div class="bico">🧠</div>
+      <div>
+        <div class="bt">The "Analyst Brain" Framework</div>
+        <p class="bd2t">Wilfred's approach balances three pillars most analysts lack in combination — technical depth, rigorous analytical method, and the communication skills that convert findings into board-level action.</p>
+        <div class="bbs">
+          <span class="bb bbt">🛠 Technical: SQL · Python · Power BI · Tableau</span>
+          <span class="bb bba">📐 Analytical: Econometrics · Regression · Forecasting</span>
+          <span class="bb bbs2">💬 Soft: Storytelling · Business Acumen · Critical Thinking</span>
         </div>
-
-        <div class="toolkit-group reveal reveal-delay-2">
-          <div class="toolkit-group-title">
-            <i class="fa-solid fa-chart-bar"></i> BI &amp; Visualisation
-          </div>
-          <div class="toolkit-tags">
-            <span class="tool-tag">Power BI</span>
-            <span class="tool-tag">Tableau</span>
-            <span class="tool-tag">Excel (Advanced)</span>
-            <span class="tool-tag">DAX</span>
-          </div>
-        </div>
-
-        <div class="toolkit-group reveal reveal-delay-3">
-          <div class="toolkit-group-title">
-            <i class="fa-solid fa-flask"></i> Statistical Tools
-          </div>
-          <div class="toolkit-tags">
-            <span class="tool-tag">STATA</span>
-            <span class="tool-tag">SPSS</span>
-            <span class="tool-tag">Econometric Modelling</span>
-            <span class="tool-tag">Time Series</span>
-            <span class="tool-tag">Regression Analysis</span>
-          </div>
-        </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       EXPERIENCE
-  ============================================================ -->
-  <section id="experience" class="section-wrap">
-    <div class="container">
-      <div class="big-num">04</div>
-      <div class="eyebrow reveal">Career</div>
-      <h2 class="section-title reveal reveal-delay-1">Professional <span>Experience</span></h2>
-      <p class="section-sub reveal reveal-delay-2">
-        Building credibility through real-world policy and data challenges.
-      </p>
-
-      <div class="timeline">
-
-        <div class="timeline-item reveal reveal-delay-1">
-          <div class="timeline-dot"></div>
-          <div class="exp-card">
-            <div class="exp-header">
-              <div class="exp-role">Data Analyst — Research Associate</div>
-              <span class="exp-period">Recent</span>
-            </div>
-            <div class="exp-org">
-              <i class="fa-solid fa-building-columns"></i>
-              Kenya Institute for Public Policy Research and Analysis (KIPPRA)
-            </div>
-            <ul class="exp-list">
-              <li>Managed and cleaned large-scale national expenditure datasets, maintaining rigorous data integrity standards for policy-grade research outputs.</li>
-              <li>Supported senior economists in econometric modelling and statistical analysis underpinning government budget and fiscal policy reports.</li>
-              <li>Built automated data pipelines in Python and SQL to streamline data extraction, transformation, and loading (ETL) processes.</li>
-              <li>Developed interactive Power BI dashboards visualising national economic indicators for use by policy stakeholders and government officials.</li>
-              <li>Collaborated on research papers examining public expenditure trends, fiscal sustainability, and economic forecasting models.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Placeholder for additional roles -->
-        <div class="timeline-item reveal reveal-delay-2">
-          <div class="timeline-dot"></div>
-          <div class="exp-card">
-            <div class="exp-header">
-              <div class="exp-role">Data &amp; Economics Projects</div>
-              <span class="exp-period">Ongoing</span>
-            </div>
-            <div class="exp-org">
-              <i class="fa-solid fa-chart-line"></i>
-              Independent Research &amp; Freelance Analytics
-            </div>
-            <ul class="exp-list">
-              <li>Designed end-to-end BI solutions for SMEs — from raw data ingestion to executive dashboard delivery.</li>
-              <li>Applied time-series forecasting models for market trend analysis in the FinTech and retail sectors.</li>
-              <li>Developed full-stack data applications using Python back-end, SQL databases, and JavaScript front-end for client-facing analytics tools.</li>
-            </ul>
-          </div>
-        </div>
-
+<!-- ═══ TOOLKIT ═══ -->
+<section id="toolkit" class="sec sec-alt">
+  <div class="deco">03</div>
+  <div class="wrap">
+    <div class="lbl r">Tech Stack</div>
+    <h2 class="h2 r d1">Core <em>Toolkit</em></h2>
+    <p class="sdesc r d2">Precision tools mastered across the full data lifecycle — from raw extraction to executive visualisation.</p>
+    <div class="tkg">
+      <div class="tgc r d1">
+        <div class="tgh"><div class="tghi"><i class="fa-solid fa-terminal"></i></div><div class="tgt">Programming &amp; Databases</div></div>
+        <div class="tts"><span class="tt">Python</span><span class="tt">Pandas</span><span class="tt">NumPy</span><span class="tt">SQL (MySQL)</span><span class="tt">phpMyAdmin</span><span class="tt">PHP</span><span class="tt">JavaScript</span><span class="tt">HTML &amp; CSS</span></div>
+      </div>
+      <div class="tgc r d2">
+        <div class="tgh"><div class="tghi"><i class="fa-solid fa-chart-bar"></i></div><div class="tgt">BI &amp; Visualisation</div></div>
+        <div class="tts"><span class="tt">Power BI</span><span class="tt">DAX</span><span class="tt">Tableau</span><span class="tt">Excel (Advanced)</span><span class="tt">Google Sheets</span></div>
+      </div>
+      <div class="tgc r d3">
+        <div class="tgh"><div class="tghi"><i class="fa-solid fa-flask"></i></div><div class="tgt">Statistical &amp; Econometric</div></div>
+        <div class="tts"><span class="tt">STATA</span><span class="tt">SPSS</span><span class="tt">Regression Modelling</span><span class="tt">Time Series</span><span class="tt">Hypothesis Testing</span><span class="tt">Forecasting</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- ============================================================
-       INTERESTS
-  ============================================================ -->
-  <section id="interests" class="section-wrap">
-    <div class="container">
-      <div class="big-num">05</div>
-      <div class="eyebrow reveal">Focus Areas</div>
-      <h2 class="section-title reveal reveal-delay-1">Where I <span>Thrive</span></h2>
-      <p class="section-sub reveal reveal-delay-2">
-        The domains where analytical depth meets real-world impact.
-      </p>
-
-      <div class="interests-grid">
-
-        <div class="interest-card reveal reveal-delay-1">
-          <span class="interest-icon">💳</span>
-          <div class="interest-title">FinTech</div>
-          <p class="interest-sub">Leveraging data to drive financial inclusion, credit modelling, and digital payment intelligence.</p>
-        </div>
-
-        <div class="interest-card reveal reveal-delay-2">
-          <span class="interest-icon">🏛️</span>
-          <div class="interest-title">Policy Research</div>
-          <p class="interest-sub">Translating econometric findings into actionable policy recommendations for governments and institutions.</p>
-        </div>
-
-        <div class="interest-card reveal reveal-delay-3">
-          <span class="interest-icon">📊</span>
-          <div class="interest-title">Business Intelligence</div>
-          <p class="interest-sub">Building BI ecosystems that empower executives with real-time, decision-ready insights.</p>
-        </div>
-
-        <div class="interest-card reveal reveal-delay-4">
-          <span class="interest-icon">📈</span>
-          <div class="interest-title">Market Forecasting</div>
-          <p class="interest-sub">Applying time-series and machine learning models to anticipate market trends and economic shifts.</p>
-        </div>
-
-      </div>
+    <!-- Proficiency bars -->
+    <div class="pw r d2" id="profwrap">
+      <div class="ph">TOOL PROFICIENCY</div>
+      <div class="pi"><div class="pih"><span class="pin">Python (Pandas, NumPy)</span><span class="pip">88%</span></div><div class="pbar"><div class="pfill" data-w="88"></div></div></div>
+      <div class="pi"><div class="pih"><span class="pin">SQL / MySQL</span><span class="pip">90%</span></div><div class="pbar"><div class="pfill" data-w="90"></div></div></div>
+      <div class="pi"><div class="pih"><span class="pin">Power BI / Tableau</span><span class="pip">85%</span></div><div class="pbar"><div class="pfill" data-w="85"></div></div></div>
+      <div class="pi"><div class="pih"><span class="pin">STATA / SPSS</span><span class="pip">82%</span></div><div class="pbar"><div class="pfill" data-w="82"></div></div></div>
+      <div class="pi"><div class="pih"><span class="pin">Excel (Advanced)</span><span class="pip">92%</span></div><div class="pbar"><div class="pfill" data-w="92"></div></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       CONTACT
-  ============================================================ -->
-  <section id="contact" class="section-wrap">
-    <div class="container">
-      <div class="big-num">06</div>
-      <div class="eyebrow reveal">Get In Touch</div>
-      <h2 class="section-title reveal reveal-delay-1">Let's <span>Connect</span></h2>
-      <p class="section-sub reveal reveal-delay-2">
-        Have a data challenge, research project, or role in mind? I'd love to hear from you.
-      </p>
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience" class="sec">
+  <div class="deco">04</div>
+  <div class="wrap">
+    <div class="lbl r">Career</div>
+    <h2 class="h2 r d1">Professional <em>Experience</em></h2>
+    <p class="sdesc r d2">Real-world impact — from national policy data at KIPPRA to client analytics and academic mentoring.</p>
+    <div class="tl">
 
-      <div class="contact-grid">
+      <!-- Freelance (Jan 2023 – Present, longer tenure) -->
+      <div class="tli r d1">
+        <div class="tld"></div>
+        <div class="tlcard">
+          <div class="tltp">
+            <div class="tlr">Freelance Data Analyst &amp; Research Tutor</div>
+            <span class="tlb">Jan 2023 – Present</span>
+          </div>
+          <div class="tlo"><i class="fa-solid fa-laptop-code"></i> Remote / Independent</div>
+          <ul class="tll">
+            <li>Designed and implemented econometric models using Stata, SPSS, and Excel for diverse client research projects spanning academic, policy, and commercial domains.</li>
+            <li>Conducted in-depth statistical analyses including regression modelling and trend forecasting to support data-driven business and research conclusions.</li>
+            <li>Created high-impact data visualisations and interactive Power BI dashboards for clients — enabling faster, more confident executive decision-making.</li>
+            <li>Provided consulting on research methodology and guided stakeholders through interpretation of complex statistical results with business context and narrative clarity.</li>
+          </ul>
+        </div>
+      </div>
 
-        <!-- Info -->
+      <!-- KIPPRA -->
+      <div class="tli r d2">
+        <div class="tld"></div>
+        <div class="tlcard">
+          <div class="tltp">
+            <div class="tlr">Intern — Knowledge Management Department</div>
+            <span class="tlb">June – Aug 2024</span>
+          </div>
+          <div class="tlo"><i class="fa-solid fa-building-columns"></i> Kenya Institute for Public Policy Research and Analysis (KIPPRA), Nairobi</div>
+          <ul class="tll">
+            <li>Managed national-scale Expenditure Data Collection and Categorisation, ensuring high data integrity standards for policy research consumed by government decision-makers.</li>
+            <li>Cleaned and validated large datasets through rigorous statistical analysis to support authoritative national policy briefs and research publications.</li>
+            <li>Prepared visual reports and executive presentations for internal and external stakeholders using Power BI and other visualisation tools.</li>
+            <li>Collaborated with interdepartmental teams to maintain and organise knowledge repositories, improving research data accessibility across the organisation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KIPPRA Recommendation -->
+      <div class="rco r d3">
+        <div class="rcoic">📄</div>
         <div>
-          <div class="contact-info-item reveal reveal-delay-1">
-            <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <div class="contact-info-label">Email</div>
-              <div class="contact-info-val">
-                <a href="mailto:info.wilfredumba@gmail.com">info.wilfredumba@gmail.com</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-info-item reveal reveal-delay-2">
-            <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <div class="contact-info-label">Phone / WhatsApp</div>
-              <div class="contact-info-val">
-                <a href="tel:+254742908745">+254 742 908 745</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-info-item reveal reveal-delay-3">
-            <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <div class="contact-info-label">Location</div>
-              <div class="contact-info-val">Nairobi, Kenya</div>
-            </div>
-          </div>
-
-          <div class="contact-availability reveal reveal-delay-4">
-            <span class="avail-dot"></span>
-            Open to full-time, contract &amp; consulting roles
-          </div>
+          <div class="rcot">KIPPRA Recommendation — Sir Samuel Kaunde, Senior Statistician</div>
+          <p class="rcob">Wilfred's internship at KIPPRA was formally endorsed in a written recommendation by Senior Statistician Samuel Kaunde, attesting to the quality of his data management, analytical contributions, and professional conduct during his tenure in the Knowledge Management Department.</p>
+          <div class="rcos">✦ Sir Samuel Kaunde — Senior Statistician, KIPPRA &nbsp;·&nbsp; +254 720 020 45</div>
         </div>
+      </div>
 
-        <!-- Form -->
-        <div class="reveal reveal-delay-2">
-          <div id="contact-form-wrap">
-            <div class="form-group">
-              <label class="form-label" for="f-name">Full Name</label>
-              <input class="form-input" id="f-name" type="text" placeholder="Your name" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="f-email">Email Address</label>
-              <input class="form-input" id="f-email" type="email" placeholder="you@example.com" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="f-msg">Message</label>
-              <textarea class="form-input" id="f-msg" placeholder="Tell me about your project or opportunity..."></textarea>
-            </div>
-            <button class="form-btn" id="send-btn" type="button">
-              <i class="fa-solid fa-paper-plane"></i> Send Message
-            </button>
+      <!-- Academic Mentor -->
+      <div class="tli r d4">
+        <div class="tld"></div>
+        <div class="tlcard">
+          <div class="tltp">
+            <div class="tlr">Volunteer Academic Mentor</div>
+            <span class="tlb tlbv">May 2023 – Apr 2025</span>
           </div>
-          <div class="form-success" id="form-success">
-            <i class="fa-solid fa-circle-check"></i>
-            Message sent! I'll be in touch soon.
-          </div>
+          <div class="tlo"><i class="fa-solid fa-graduation-cap"></i> Maasai Mara University, Kenya</div>
+          <ul class="tll">
+            <li>Mentored 50+ undergraduate students in basic and intermediate statistics, data analysis tools, and research methodology — building a reputation for patient, clear instruction.</li>
+            <li>Facilitated group learning sessions on Excel and SPSS, directly improving student technical proficiency and exam performance.</li>
+            <li>Developed communication and pedagogy skills that now distinguish Wilfred's client-facing consulting work.</li>
+          </ul>
         </div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section id="education" class="sec sec-alt">
+  <div class="deco">05</div>
+  <div class="wrap">
+    <div class="lbl r">Academic Background</div>
+    <h2 class="h2 r d1">Education &amp; <em>Certifications</em></h2>
+    <p class="sdesc r d2">A rigorous academic foundation, complemented by industry-recognised certifications in data and policy analytics.</p>
+    <div class="edg">
+      <div class="edc r d1"><div class="edi">🎓</div><div class="edd">BSc Economics &amp; Statistics</div><div class="edi2">Maasai Mara University, Kenya</div><div class="edy">Undergraduate Degree</div></div>
+      <div class="edc r d2"><div class="edi">📜</div><div class="edd">Professional Certificate in Policy Research &amp; Data Visualization</div><div class="edi2">Professional Development</div><div class="edy">July 2024</div></div>
+      <div class="edc r d3"><div class="edi">🐍</div><div class="edd">Certificate in Data Analysis with Python</div><div class="edi2">Professional Development</div><div class="edy">March 2024</div></div>
+    </div>
+
+    <!-- References -->
+    <div style="margin-top:4.5rem;">
+      <div class="lbl r">Professional References</div>
+      <h3 class="h2 r d1" style="font-size:clamp(1.7rem,3vw,2.4rem);">Verified <em>References</em></h3>
+      <div class="rfg">
+        <div class="rfc r d1">
+          <div class="rfa">SK</div>
+          <div class="rfn">Sir Samuel Kaunde</div>
+          <div class="rft">Senior Statistician — KIPPRA, Nairobi</div>
+          <div class="rfc2"><i class="fa-solid fa-phone"></i>+254 720 020 45</div>
+        </div>
+        <div class="rfc r d2">
+          <div class="rfa">JO</div>
+          <div class="rfn">Job Oganda</div>
+          <div class="rft">Chairman, Economics Department — Maasai Mara University</div>
+          <div class="rfc2"><i class="fa-solid fa-phone"></i>+254 721 101 472</div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer>
-    <div class="container footer-inner">
-      <div class="footer-logo">W<span>.</span>UMBA</div>
-      <p class="footer-copy">© 2025 Wilfred Umba · Data Analyst &amp; Economist</p>
-      <div class="footer-socials">
-        <a href="mailto:info.wilfredumba@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="tel:+254742908745" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<!-- ═══ INTERESTS ═══ -->
+<section id="interests" class="sec">
+  <div class="deco">06</div>
+  <div class="wrap">
+    <div class="lbl r">Focus Areas</div>
+    <h2 class="h2 r d1">Where I <em>Thrive</em></h2>
+    <p class="sdesc r d2">The domains where analytical depth meets real-world, high-stakes impact.</p>
+    <div class="ig">
+      <div class="ic r d1"><span class="iem">💳</span><div class="it">FinTech</div><p class="is">Data-driven financial inclusion, credit modelling, and digital payment intelligence.</p></div>
+      <div class="ic r d2"><span class="iem">🏛️</span><div class="it">Policy Research</div><p class="is">Translating econometric findings into actionable government and institutional policy.</p></div>
+      <div class="ic r d3"><span class="iem">📊</span><div class="it">Business Intelligence</div><p class="is">BI ecosystems that empower executives with real-time, decision-ready insights.</p></div>
+      <div class="ic r d4"><span class="iem">📈</span><div class="it">Market Forecasting</div><p class="is">Time-series and econometric models that anticipate market trends and economic shifts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="sec sec-alt">
+  <div class="deco">07</div>
+  <div class="wrap">
+    <div class="lbl r">Get In Touch</div>
+    <h2 class="h2 r d1">Let's <em>Connect</em></h2>
+    <p class="sdesc r d2">Have a data challenge, policy project, BI opportunity, or full-time role in mind? I'd love to hear from you.</p>
+    <div class="cw">
+      <div>
+        <div class="cii r d1"><div class="cib"><i class="fa-solid fa-envelope"></i></div><div><div class="cil">Email</div><div class="civ"><a href="mailto:info.wilfredumba@gmail.com">info.wilfredumba@gmail.com</a></div></div></div>
+        <div class="cii r d2"><div class="cib"><i class="fa-solid fa-phone"></i></div><div><div class="cil">Phone / WhatsApp</div><div class="civ"><a href="tel:+254742908745">+254 742 908 745</a></div></div></div>
+        <div class="cii r d3"><div class="cib"><i class="fa-brands fa-linkedin-in"></i></div><div><div class="cil">LinkedIn</div><div class="civ"><a href="https://linkedin.com/in/wilfred-umba-35806b257" target="_blank" rel="noopener">wilfred-umba-35806b257</a></div></div></div>
+        <div class="cii r d4"><div class="cib"><i class="fa-solid fa-location-dot"></i></div><div><div class="cil">Location</div><div class="civ">Nairobi, Kenya</div></div></div>
+        <div class="avail r d5"><span class="avd"></span> Open to full-time, contract &amp; consulting roles</div>
+      </div>
+      <div class="r d2">
+        <div id="fwrap">
+          <div class="frow">
+            <div class="fg2"><label class="fl2" for="fn">Full Name</label><input class="fi2" id="fn" type="text" placeholder="Your full name" /></div>
+            <div class="fg2"><label class="fl2" for="fe">Email</label><input class="fi2" id="fe" type="email" placeholder="you@company.com" /></div>
+          </div>
+          <div class="fg2"><label class="fl2" for="fs">Subject</label><input class="fi2" id="fs" type="text" placeholder="Job opportunity / Project / Collaboration" /></div>
+          <div class="fg2"><label class="fl2" for="fm">Message</label><textarea class="fi2" id="fm" placeholder="Tell me about the role, project, or challenge you're working on..."></textarea></div>
+          <button class="fbtn" id="sbtn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </div>
+        <div class="fok" id="fok"><i class="fa-solid fa-circle-check"></i><p>Message received! Wilfred will respond within 24 hours.</p></div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Back to top -->
-  <button id="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap fti">
+    <div class="ftl">WILFRED<span>.</span>UMBA</div>
+    <p class="ftc">© 2025 Wilfred Juma Umba · Data Analyst &amp; Economics Professional · Nairobi, Kenya</p>
+    <div class="fts">
+      <a href="mailto:info.wilfredumba@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+254742908745" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+      <a href="https://linkedin.com/in/wilfred-umba-35806b257" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
 
-  <!-- ============================================================
-       JAVASCRIPT
-  ============================================================ -->
-  <script>
-    /* ---- Nav scroll ---- */
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-      document.getElementById('back-top').classList.toggle('show', window.scrollY > 400);
-    });
+<button id="btt" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    /* ---- Hamburger ---- */
-    const hbg = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hbg.addEventListener('click', () => {
-      hbg.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hbg.classList.remove('open');
-        navLinks.classList.remove('open');
-      });
-    });
+<script>
+/* ── Progress ── */
+window.addEventListener('scroll',()=>{
+  const p=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  document.getElementById('prog').style.width=p+'%';
+  document.getElementById('nav').classList.toggle('on',window.scrollY>50);
+  document.getElementById('btt').classList.toggle('show',window.scrollY>500);
+});
 
-    /* ---- Reveal on scroll ---- */
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          revealObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+/* ── Burger ── */
+const burg=document.getElementById('burg'),nl=document.getElementById('nl');
+burg.addEventListener('click',()=>{burg.classList.toggle('x');nl.classList.toggle('open');});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burg.classList.remove('x');nl.classList.remove('open');}));
 
-    /* ---- Back to top ---- */
-    document.getElementById('back-top').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+/* ── Reveal ── */
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
 
-    /* ---- Contact form ---- */
-    document.getElementById('send-btn').addEventListener('click', () => {
-      const name  = document.getElementById('f-name').value.trim();
-      const email = document.getElementById('f-email').value.trim();
-      const msg   = document.getElementById('f-msg').value.trim();
-      if (!name || !email || !msg) {
-        alert('Please fill in all fields before sending.');
-        return;
-      }
-      document.getElementById('contact-form-wrap').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    });
+/* ── Proficiency bars ── */
+const po=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.pfill').forEach(b=>b.style.width=b.dataset.w+'%');
+      po.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+const pw=document.getElementById('profwrap');
+if(pw) po.observe(pw);
 
-    /* ============================================================
-       HERO CANVAS — animated data-grid / node network
-    ============================================================ */
-    (function () {
-      const canvas = document.getElementById('hero-canvas');
-      const ctx = canvas.getContext('2d');
-      let W, H, nodes = [], RAF;
+/* ── Back to top ── */
+document.getElementById('btt').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-      const NODE_COUNT = 55;
-      const CONNECT_DIST = 160;
-      const CYAN = '0,212,255';
+/* ── Contact form ── */
+document.getElementById('sbtn').addEventListener('click',()=>{
+  if(!document.getElementById('fn').value.trim()||!document.getElementById('fe').value.trim()||!document.getElementById('fm').value.trim()){
+    alert('Please fill in your name, email, and message.');return;
+  }
+  document.getElementById('fwrap').style.display='none';
+  document.getElementById('fok').style.display='block';
+});
 
-      function resize() {
-        W = canvas.width  = canvas.offsetWidth;
-        H = canvas.height = canvas.offsetHeight;
-      }
-
-      function createNodes() {
-        nodes = [];
-        for (let i = 0; i < NODE_COUNT; i++) {
-          nodes.push({
-            x: Math.random() * W,
-            y: Math.random() * H,
-            vx: (Math.random() - .5) * .45,
-            vy: (Math.random() - .5) * .45,
-            r: Math.random() * 2 + 1
-          });
-        }
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, W, H);
-
-        // Move
-        nodes.forEach(n => {
-          n.x += n.vx;
-          n.y += n.vy;
-          if (n.x < 0 || n.x > W) n.vx *= -1;
-          if (n.y < 0 || n.y > H) n.vy *= -1;
-        });
-
-        // Connections
-        for (let i = 0; i < nodes.length; i++) {
-          for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < CONNECT_DIST) {
-              const alpha = (1 - dist / CONNECT_DIST) * 0.35;
-              ctx.beginPath();
-              ctx.moveTo(nodes[i].x, nodes[i].y);
-              ctx.lineTo(nodes[j].x, nodes[j].y);
-              ctx.strokeStyle = `rgba(${CYAN},${alpha})`;
-              ctx.lineWidth = 0.8;
-              ctx.stroke();
-            }
-          }
-        }
-
-        // Nodes
-        nodes.forEach(n => {
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${CYAN},0.7)`;
-          ctx.fill();
-        });
-
-        RAF = requestAnimationFrame(draw);
-      }
-
-      window.addEventListener('resize', () => {
-        resize();
-        createNodes();
-      });
-
-      resize();
-      createNodes();
-      draw();
-    })();
-  </script>
+/* ── Hero Canvas: Node Network ── */
+(function(){
+  const c=document.getElementById('cnv'),ctx=c.getContext('2d');
+  let W,H,nodes=[];
+  const N=60,D=155,T='0,201,177';
+  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
+  function init(){nodes=Array.from({length:N},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.8+.8}));}
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;});
+    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<D){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle=`rgba(${T},${(1-d/D)*.27})`;ctx.lineWidth=.7;ctx.stroke();}
+    }
+    nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=`rgba(${T},.65)`;ctx.fill();});
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();frame();
+})();
+</script>
 </body>
 </html>
